@@ -87,7 +87,8 @@ int main(int argc, char **argv) {
     if (strcmp(isaname, "sve") == 0)
       wdp = wsp = "x";
 
-    char * vectorcc = "";
+    // The scalar functions use the default calling convention.
+    char * vectorcc = strcmp(vdoublename, "double") == 0 ? "" : " SLEEF_VECTORCALL";
 
     printf("#ifdef %s\n", architecture);
 

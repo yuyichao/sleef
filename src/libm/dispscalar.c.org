@@ -8,6 +8,8 @@
 #include <signal.h>
 #include <setjmp.h>
 
+// The scalar functions use the default calling convention.
+#define DISABLE_VECTOR_CC
 #include "misc.h"
 
 #define SLEEF_IMPORT_IS_EXPORT

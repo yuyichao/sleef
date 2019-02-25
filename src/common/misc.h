@@ -317,6 +317,32 @@ typedef struct {
 
 #endif // #ifndef __MISC_H__
 
+// The scalar functions use the default calling convention.
+// The scalar dispatcher defines DISABLE_VECTOR_CC itself.
+#if defined(ENABLE_PUREC_SCALAR) || defined(ENABLE_PURECFMA_SCALAR)
+#define DISABLE_VECTOR_CC
+#endif
+
+#if defined(ENABLE_AAVPCS)
+#define VECTOR_CC __attribute__((aarch64_vector_pcs))
+#elif defined(_WIN32) && defined(__clang__) && defined(__x86_64__) && !defined(DISABLE_VECTOR_CC)
+#define ENABLE_VECTORCALL 1
+#define VECTOR_CC __attribute__((vectorcall))
+#else
+#define VECTOR_CC
+#endif
+
+// Name of the alias target for a function using VECTOR_CC.
+// With vectorcall, the symbol name is decorated as "name@@<argument size>".
+// The leading \x01 (the LLVM marker for "use this name verbatim") is written
+// as a literal control character rather than an escape sequence, since newer
+// clang rejects escape sequences in attribute (unevaluated) string literals.
+#ifdef ENABLE_VECTORCALL
+#define VECTOR_CC_ALIAS(name, suffix) "" name suffix
+#else
+#define VECTOR_CC_ALIAS(name, suffix) name
+#endif
+
 //
 
 #if defined (__GNUC__)
