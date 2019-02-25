@@ -47,6 +47,14 @@
 #include "misc.h"
 #endif // #if !defined(SLEEF_GENHEADER)
 
+#define VEC_PREFIX "\01"
+#define VEC_SUFFIX_D1 "@@32"
+#define VEC_SUFFIX_D2 "@@64"
+#define VEC_SUFFIX_D3 "@@96"
+#define VEC_SUFFIX_F1 "@@32"
+#define VEC_SUFFIX_F2 "@@64"
+#define VEC_SUFFIX_F3 "@@96"
+
 typedef __m256i vmask;
 typedef __m256i vopmask;
 

@@ -31,6 +31,14 @@
 #define DFTPRIORITY LOG2VECTLENDP
 #define ISANAME "Pure C Array"
 
+#define VEC_PREFIX "\01"
+#define VEC_SUFFIX_D1 "@@8"
+#define VEC_SUFFIX_D2 "@@16"
+#define VEC_SUFFIX_D3 "@@24"
+#define VEC_SUFFIX_F1 "@@8"
+#define VEC_SUFFIX_F2 "@@16"
+#define VEC_SUFFIX_F3 "@@24"
+
 typedef union {
   uint32_t u[VECTLENDP*2];
   uint64_t x[VECTLENDP];

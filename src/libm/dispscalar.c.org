@@ -13,6 +13,10 @@
 #define SLEEF_IMPORT_IS_EXPORT
 #include "sleef.h"
 
+#ifdef ENABLE_ALIAS
+#  undef ENABLE_ALIAS
+#endif
+
 #include "dispatcher.h"
 
 NOEXPORT double sleef_cpuid_SCALFMA;

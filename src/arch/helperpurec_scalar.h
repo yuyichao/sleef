@@ -98,6 +98,14 @@
 
 #define DFTPRIORITY LOG2VECTLENDP
 
+#define VEC_PREFIX "\01"
+#define VEC_SUFFIX_D1 "@@8"
+#define VEC_SUFFIX_D2 "@@16"
+#define VEC_SUFFIX_D3 "@@24"
+#define VEC_SUFFIX_F1 "@@8"
+#define VEC_SUFFIX_F2 "@@16"
+#define VEC_SUFFIX_F3 "@@24"
+
 typedef uint64_t vmask;
 typedef uint32_t vopmask;
 typedef double vdouble;
