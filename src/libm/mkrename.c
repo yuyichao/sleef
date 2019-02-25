@@ -136,7 +136,7 @@ int main(int argc, char **argv) {
     if (strcmp(isaname, "sve") == 0)
       wdp = wsp = "x";
 
-    char * vectorcc = "";
+    char * vectorcc = " __attribute__((vectorcall))";
     #ifdef ENABLE_AAVPCS
     if (strcmp(isaname, "advsimd") == 0)
       vectorcc =" __attribute__((aarch64_vector_pcs))";

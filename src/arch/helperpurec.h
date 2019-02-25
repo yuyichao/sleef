@@ -24,6 +24,24 @@
 #define DFTPRIORITY LOG2VECTLENDP
 #define ISANAME "Pure C Array"
 
+#if CONFIG == 1
+#  define SUFFIX_D1 "@@8"
+#  define SUFFIX_D2 "@@16"
+#  define SUFFIX_D3 "@@24"
+#  define SUFFIX_F1 "@@8"
+#  define SUFFIX_F2 "@@16"
+#  define SUFFIX_F3 "@@24"
+#elseif CONFIG == 2
+#  define SUFFIX_D1 "@@16"
+#  define SUFFIX_D2 "@@32"
+#  define SUFFIX_D3 "@@48"
+#  define SUFFIX_F1 "@@16"
+#  define SUFFIX_F2 "@@32"
+#  define SUFFIX_F3 "@@48"
+#else
+#  error CONFIG out of range
+#endif
+
 typedef union {
   uint32_t u[VECTLENDP*2];
   uint64_t x[VECTLENDP];

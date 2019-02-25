@@ -36,6 +36,13 @@
 #include <stdint.h>
 #include "misc.h"
 
+#define SUFFIX_D1 "@@16"
+#define SUFFIX_D2 "@@32"
+#define SUFFIX_D3 "@@48"
+#define SUFFIX_F1 "@@16"
+#define SUFFIX_F2 "@@32"
+#define SUFFIX_F3 "@@48"
+
 typedef __m128i vmask;
 typedef __m128i vopmask;
 

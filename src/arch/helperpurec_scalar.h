@@ -74,6 +74,10 @@
 
 #define DFTPRIORITY LOG2VECTLENDP
 
+#ifdef ENABLE_ALIAS
+#  undef ENABLE_ALIAS
+#endif
+
 typedef union {
   uint32_t u[2];
   int32_t i[2];

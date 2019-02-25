@@ -330,5 +330,5 @@ typedef union {
 #ifdef ENABLE_AAVPCS
 #define VECTOR_CC __attribute__((aarch64_vector_pcs))
 #else
-#define VECTOR_CC
+#define VECTOR_CC __attribute__((vectorcall))
 #endif
