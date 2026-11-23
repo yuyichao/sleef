@@ -218,7 +218,12 @@ typedef struct {
 
 #if defined(__MINGW32__) || defined(__MINGW64__) || defined(__CYGWIN__)
 #ifndef SLEEF_STATIC_LIBS
+#if defined(__i386__)
 #define EXPORT __stdcall __declspec(dllexport)
+#else
+// __stdcall has no effect on 64bit and conflicts with vectorcall on x86_64.
+#define EXPORT __declspec(dllexport)
+#endif
 #define NOEXPORT
 #else // #ifndef SLEEF_STATIC_LIBS
 #define EXPORT
